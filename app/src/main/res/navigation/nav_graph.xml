@@ -10,5 +10,14 @@
         android:id="@+id/companiesListHomeFragment"
         android:name="com.example.applyhistory.CompaniesListHomeFragment"
         android:label="CompaniesListHomeFragment"
-        tools:layout="@layout/fragment_companies_list_home"/>
+        tools:layout="@layout/fragment_companies_list_home">
+        <action
+            android:id="@+id/action_companiesListHomeFragment_to_addCompanyFragment"
+            app:destination="@id/addCompanyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCompanyFragment"
+        android:name="com.example.applyhistory.AddCompanyFragment"
+        android:label="AddCompanyFragment"
+        tools:layout="@layout/fragment_add_company"/>
 </navigation>

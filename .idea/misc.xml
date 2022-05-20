@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_add_company.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_companies_list_home.xml" value="0.19270833333333334" />
       </map>
     </option>
