@@ -14,10 +14,22 @@
         <action
             android:id="@+id/action_companiesListHomeFragment_to_addCompanyFragment"
             app:destination="@id/addCompanyFragment" />
+        <action
+            android:id="@+id/action_companiesListHomeFragment_to_companyDetailsFragment"
+            app:destination="@id/companyDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCompanyFragment"
         android:name="com.example.applyhistory.AddCompanyFragment"
         android:label="AddCompanyFragment"
         tools:layout="@layout/fragment_add_company"/>
+    <fragment
+        android:id="@+id/companyDetailsFragment"
+        android:name="com.example.applyhistory.CompanyDetailsFragment"
+        android:label="CompanyDetailsFragment"
+        tools:layout="@layout/fragment_company_detail">
+        <argument
+            android:name="id"
+            app:argType="integer"/>
+    </fragment>
 </navigation>

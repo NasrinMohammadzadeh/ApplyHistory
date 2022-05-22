@@ -14,4 +14,6 @@
     <color name="rejected_color">#5BE80B0B</color>
     <color name="interview_color">#4A2196F3</color>
     <color name="accepted_color">#751CF325</color>
+    <color name="lightGray4">#4cefefef</color>
+    <color name="lightGray3">#e1e1e1</color>
 </resources>

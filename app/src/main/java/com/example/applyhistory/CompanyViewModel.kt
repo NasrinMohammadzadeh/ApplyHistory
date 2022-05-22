@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import java.util.ArrayList
 
 class CompanyViewModel(app: Application): AndroidViewModel(app) {
 
@@ -23,6 +22,9 @@ class CompanyViewModel(app: Application): AndroidViewModel(app) {
         companyRepository.addCompany(company)
     }
 
+    fun getCompany(id: Int){
+        company.postValue( companyRepository.getCompany(id))
+    }
 
 }
 

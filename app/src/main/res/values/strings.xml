@@ -5,6 +5,7 @@
     <string name="description">Description</string>
     <string name="add_company">Add company</string>
     <string name="total_applied">Total Applied:</string>
+    <string name="apply_status">Apply Status</string>
 
     <string-array name="apply_status">
         <item>Applied</item>

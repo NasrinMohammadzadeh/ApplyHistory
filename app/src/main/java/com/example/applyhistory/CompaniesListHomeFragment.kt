@@ -45,6 +45,14 @@ class CompaniesListHomeFragment : Fragment() {
             }
         })
 
+        adapter.setOnItemClickListener(object : CompaniesListAdapter.OnItemClickListener{
+            override fun onItemClick(item: Company, position: Int) {
+                val bundle = Bundle()
+                bundle.putInt("id",item.id)
+                findNavController().navigate(R.id.action_companiesListHomeFragment_to_companyDetailsFragment,bundle)
+            }
+        })
+
         companiesViewModel.companiesCount.observe(viewLifecycleOwner){
             if (it != null){
                 binding.count = it
