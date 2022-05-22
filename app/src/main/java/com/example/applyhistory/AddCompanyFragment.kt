@@ -42,7 +42,7 @@ class AddCompanyFragment : Fragment() {
                     companyName = binding.companyName.text.toString(),
                     companyWebSite = binding.companyWeb.text.toString(),
                     description = binding.description.text.toString(),
-                    lastUpdateDate = DateAndTimeUtil.getCurrentPersianTime()!!,
+                    lastUpdateDate = DateAndTimeUtil.getCurrentPersianDate()!!,
                     applyStatus = binding.applyStatus.selectedItemPosition
                 )
             )

@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black_2a">#2a2a2a</color>
+    <color name="divider">#d9d9db</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="applied_color">#65FFE600</color>
+    <color name="rejected_color">#5BE80B0B</color>
+    <color name="interview_color">#4A2196F3</color>
+    <color name="accepted_color">#751CF325</color>
 </resources>

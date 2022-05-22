@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_white_smoke.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/companies_list_item_view.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_add_company.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_companies_list_home.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_companies_list_home.xml" value="0.5" />
       </map>
     </option>
   </component>

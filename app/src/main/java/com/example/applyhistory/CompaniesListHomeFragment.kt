@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.applyhistory.databinding.FragmentCompaniesListHomeBinding
 
 class CompaniesListHomeFragment : Fragment() {
@@ -25,6 +27,28 @@ class CompaniesListHomeFragment : Fragment() {
 
         binding.addCompany.setOnClickListener {
             findNavController().navigate(R.id.action_companiesListHomeFragment_to_addCompanyFragment)
+        }
+
+
+        val adapter = CompaniesListAdapter()
+        binding.recycler.adapter = adapter
+        companiesViewModel.companiesList?.observe(viewLifecycleOwner){
+            if (it != null){
+                adapter.submitList(it)
+            }
+        }
+
+        binding.recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val visibility = if ((binding.recycler.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition() != 0) View.GONE else View.VISIBLE
+                binding.addCompany.visibility = visibility
+            }
+        })
+
+        companiesViewModel.companiesCount.observe(viewLifecycleOwner){
+            if (it != null){
+                binding.count = it
+            }
         }
     }
 }

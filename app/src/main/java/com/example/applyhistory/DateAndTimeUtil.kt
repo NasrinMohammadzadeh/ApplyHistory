@@ -1,23 +1,28 @@
 package com.example.applyhistory
 
-import java.text.SimpleDateFormat
 import java.util.*
 
 class DateAndTimeUtil {
-companion object {
-    fun getCurrentPersianTime(): String? { //todo sample  output 16:30:46
-        return try {
-            val now = Date()
-            var sdfDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH)
-            val strDate = sdfDate.format(now)
-            val date = sdfDate.parse(strDate)
-            sdfDate = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
-            val time = sdfDate.format(date!!)
-            time
-        } catch (e: java.lang.Exception) {
-            ""
+    companion object {
+        fun getCurrentPersianDate(): String? { //todo sample output 1400/4/24
+            return try {
+                val calendar = Calendar.getInstance()
+                calendar.timeZone = TimeZone.getTimeZone("UTC")
+                val year = calendar[Calendar.YEAR]
+                val month = calendar[Calendar.MONTH]
+                val day = calendar[Calendar.DAY_OF_MONTH]
+                val jalaliToday = JalaliCalendar.gregorianToJalali(
+                    JalaliCalendar.YearMonthDate(
+                        year,
+                        month,
+                        day
+                    )
+                )
+                jalaliToday.toString()
+            } catch (e: java.lang.Exception) {
+                ""
+            }
         }
     }
-}
 
 }
