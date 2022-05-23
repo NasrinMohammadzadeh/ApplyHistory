@@ -22,8 +22,17 @@ class CompanyViewModel(app: Application): AndroidViewModel(app) {
         companyRepository.addCompany(company)
     }
 
+
+    fun updateCompany(company: Company){
+        companyRepository.updateCompany(company)
+    }
+
     fun getCompany(id: Int){
         company.postValue( companyRepository.getCompany(id))
+    }
+
+    fun resetCompany(){
+        company.value = null
     }
 
 }

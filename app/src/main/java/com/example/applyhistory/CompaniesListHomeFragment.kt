@@ -26,7 +26,9 @@ class CompaniesListHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addCompany.setOnClickListener {
-            findNavController().navigate(R.id.action_companiesListHomeFragment_to_addCompanyFragment)
+            val bundle = Bundle()
+            bundle.putInt("insert_mode",0)
+            findNavController().navigate(R.id.action_companiesListHomeFragment_to_addCompanyFragment,bundle)
         }
 
 

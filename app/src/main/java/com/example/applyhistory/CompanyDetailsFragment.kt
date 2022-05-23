@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.applyhistory.databinding.FragmentCompanyDetailBinding
 
 class CompanyDetailsFragment : Fragment() {
@@ -31,6 +32,18 @@ class CompanyDetailsFragment : Fragment() {
                 binding.item = it
             }
         }
+
+        binding.updateBtn.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("insert_mode",1)
+            bundle.putInt("id",requireArguments().getInt("id"))
+            findNavController().navigate(R.id.action_companyDetailsFragment_to_addCompanyFragment,bundle)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        companiesViewModel.resetCompany()
     }
 }
 

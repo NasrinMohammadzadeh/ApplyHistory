@@ -28,4 +28,15 @@ class CompanyRepository {
         )
     }
 
+    fun updateCompany(company : Company) {
+        db!!.companyDao().update(
+            id = company.id,
+            description = company.description,
+            companyName = company.companyName,
+            companyWeb = company.companyWebSite,
+            lastUpdateDate = company.lastUpdateDate,
+            applyStatus = company.applyStatus
+        )
+    }
+
 }

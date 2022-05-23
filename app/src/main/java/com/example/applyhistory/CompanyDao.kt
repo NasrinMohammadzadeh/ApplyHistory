@@ -1,7 +1,10 @@
 package com.example.applyhistory
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface CompanyDao {
@@ -16,5 +19,8 @@ interface CompanyDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg questions: Company)
+
+    @Query("UPDATE Company SET description = :description, companyName= :companyName, companyWebSite= :companyWeb, lastUpdateDate= :lastUpdateDate, applyStatus= :applyStatus WHERE id =:id")
+    fun update(description: String?, companyName: String?,companyWeb: String?,lastUpdateDate: String?, applyStatus: Int?, id: Int)
 
 }

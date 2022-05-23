@@ -105,11 +105,11 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_btn"
+            android:id="@+id/update_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/purple_200"
-            android:text="@string/add_company"
+            android:text="@string/edit_company"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

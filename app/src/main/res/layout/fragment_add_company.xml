@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.example.applyhistory.Company" />
+
+        <variable
+            name="mode"
+            type="Integer" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,6 +23,7 @@
             android:id="@+id/company_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{item.companyName != null ? item.companyName : `` }"
             android:hint="@string/company_name"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -27,6 +37,7 @@
             android:id="@+id/company_web"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{item.companyWebSite != null ? item.companyWebSite : `` }"
             android:hint="@string/company_website"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,6 +51,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{item.description != null ? item.description : `` }"
             android:minHeight="100dp"
             android:hint="@string/description"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -52,6 +64,7 @@
         android:layout_marginTop="16dp"
         android:entries="@array/apply_status"
         android:padding="10dp"
+        android:selectedItemPosition="@{item.applyStatus != null ? item.applyStatus : 0}"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"/>
 
@@ -59,7 +72,7 @@
         android:id="@+id/add_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/add_company"
+        android:text="@{mode == 0 ? @string/add_company : @string/update_data}"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/purple_200"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

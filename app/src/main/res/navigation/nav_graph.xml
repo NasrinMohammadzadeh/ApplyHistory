@@ -22,7 +22,15 @@
         android:id="@+id/addCompanyFragment"
         android:name="com.example.applyhistory.AddCompanyFragment"
         android:label="AddCompanyFragment"
-        tools:layout="@layout/fragment_add_company"/>
+        tools:layout="@layout/fragment_add_company">
+        <argument
+            android:name="insert_mode"
+            app:argType="integer"/>
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
     <fragment
         android:id="@+id/companyDetailsFragment"
         android:name="com.example.applyhistory.CompanyDetailsFragment"
@@ -31,5 +39,8 @@
         <argument
             android:name="id"
             app:argType="integer"/>
+        <action
+            android:id="@+id/action_companyDetailsFragment_to_addCompanyFragment"
+            app:destination="@id/addCompanyFragment" />
     </fragment>
 </navigation>

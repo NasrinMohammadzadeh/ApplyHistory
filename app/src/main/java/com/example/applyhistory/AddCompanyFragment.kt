@@ -11,7 +11,7 @@ import com.example.applyhistory.databinding.FragmentAddCompanyBinding
 
 class AddCompanyFragment : Fragment() {
     private lateinit var binding: FragmentAddCompanyBinding
-    val companiesViewModel: CompanyViewModel by activityViewModels()
+    private val companiesViewModel: CompanyViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -27,6 +27,8 @@ class AddCompanyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.mode = requireArguments().getInt("insert_mode",0)
+
         val adapter = ArrayAdapter.createFromResource(
             requireActivity(),
             R.array.apply_status, android.R.layout.simple_spinner_item
@@ -35,18 +37,49 @@ class AddCompanyFragment : Fragment() {
         binding.applyStatus.adapter = adapter
 
 
+        if (requireArguments().containsKey("id")){
+            companiesViewModel.getCompany(requireArguments().getInt("id"))
+            companiesViewModel.company.observe(viewLifecycleOwner){
+                it?.let {
+                    binding.item = it
+                }
+            }
+        }
+
         binding.addBtn.setOnClickListener {
-            companiesViewModel.addCompany(
-                Company(
-                    id = 0,
-                    companyName = binding.companyName.text.toString(),
-                    companyWebSite = binding.companyWeb.text.toString(),
-                    description = binding.description.text.toString(),
-                    lastUpdateDate = DateAndTimeUtil.getCurrentPersianDate()!!,
-                    applyStatus = binding.applyStatus.selectedItemPosition
-                )
-            )
+            if (requireArguments().getInt("insert_mode") == 0){
+                addCompany()
+            }else if (requireArguments().getInt("insert_mode") == 1){
+                updateCompany()
+            }
         }
     }
+
+    private fun addCompany(){
+        companiesViewModel.addCompany(
+            Company(
+                id = 0,
+                companyName = binding.companyName.text.toString(),
+                companyWebSite = binding.companyWeb.text.toString(),
+                description = binding.description.text.toString(),
+                lastUpdateDate = DateAndTimeUtil.getCurrentPersianDate()!!,
+                applyStatus = binding.applyStatus.selectedItemPosition
+            )
+        )
+    }
+
+    private fun updateCompany(){
+        companiesViewModel.updateCompany(
+            Company(
+                id = requireArguments().getInt("id"),
+                companyName = binding.companyName.text.toString(),
+                companyWebSite = binding.companyWeb.text.toString(),
+                description = binding.description.text.toString(),
+                lastUpdateDate = DateAndTimeUtil.getCurrentPersianDate()!!,
+                applyStatus = binding.applyStatus.selectedItemPosition
+            )
+        )
+    }
+
 }
 
