@@ -13,10 +13,12 @@ import com.example.applyhistory.db.Company
 import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentCompaniesListHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CompaniesListHomeFragment : Fragment() {
     private lateinit var binding: FragmentCompaniesListHomeBinding
-    val companiesViewModel: CompanyViewModel by activityViewModels()
+    private val companiesViewModel: CompanyViewModel by activityViewModels()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

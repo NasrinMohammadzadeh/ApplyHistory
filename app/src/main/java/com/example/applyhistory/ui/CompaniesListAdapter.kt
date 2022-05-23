@@ -56,13 +56,12 @@ class CompaniesListAdapter : ListAdapter<Company, CompaniesListAdapter.ItemHolde
   companion object {
     private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Company>() {
       override fun areItemsTheSame(oldItem: Company, newItem: Company): Boolean {
-        return oldItem == newItem
+        return oldItem.id == newItem.id
       }
 
       override fun areContentsTheSame(oldItem: Company, newItem: Company): Boolean {
         return oldItem.companyName == newItem.companyName
-                && oldItem.companyWebSite == newItem.companyWebSite
-                && oldItem.description == newItem.description
+                && oldItem.lastUpdateDate == newItem.lastUpdateDate
                 && oldItem.applyStatus == newItem.applyStatus
       }
     }

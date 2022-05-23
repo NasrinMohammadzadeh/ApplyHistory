@@ -1,23 +1,26 @@
 package com.example.applyhistory.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.example.applyhistory.db.Company
 import com.example.applyhistory.repository.CompanyRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CompanyViewModel(app: Application): AndroidViewModel(app) {
+@HiltViewModel
+class CompanyViewModel @Inject constructor(private val companyRepository : CompanyRepository): ViewModel() {
 
-    var companiesCount    : LiveData<Int>
+    var companiesCount : LiveData<Int>
     var company  =  MutableLiveData<Company?>()
-    var companyRepository = CompanyRepository()
     var companiesList: LiveData<List<Company>>? = null
 
     init{
-        companyRepository.initDB(app.applicationContext)
-        companiesCount = companyRepository.getCompaniesCount()
-        companiesList = companyRepository.getCompanies()
+        companyRepository.getCompaniesCount()
+        companiesCount = companyRepository.companiesCount
+        companyRepository.getCompanies()
+        companiesList = companyRepository.companies
     }
 
     fun addCompany(company: Company){
@@ -30,7 +33,9 @@ class CompanyViewModel(app: Application): AndroidViewModel(app) {
     }
 
     fun getCompany(id: Int){
-        company.postValue( companyRepository.getCompany(id))
+        CoroutineScope(IO).launch {
+            company.postValue( companyRepository.getCompany(id))
+        }
     }
 
     fun resetCompany(){

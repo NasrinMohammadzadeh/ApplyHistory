@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentCompanyDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CompanyDetailsFragment : Fragment() {
     private lateinit var binding: FragmentCompanyDetailBinding
     private val companiesViewModel: CompanyViewModel by activityViewModels()

@@ -12,7 +12,9 @@ import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.util.DateAndTimeUtil
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentAddCompanyBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddCompanyFragment : Fragment() {
     private lateinit var binding: FragmentAddCompanyBinding
     private val companiesViewModel: CompanyViewModel by activityViewModels()
