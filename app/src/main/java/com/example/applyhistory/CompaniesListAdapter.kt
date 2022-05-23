@@ -58,7 +58,10 @@ class CompaniesListAdapter : ListAdapter<Company, CompaniesListAdapter.ItemHolde
       }
 
       override fun areContentsTheSame(oldItem: Company, newItem: Company): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.companyName == newItem.companyName
+                && oldItem.companyWebSite == newItem.companyWebSite
+                && oldItem.description == newItem.description
+                && oldItem.applyStatus == newItem.applyStatus
       }
     }
   }

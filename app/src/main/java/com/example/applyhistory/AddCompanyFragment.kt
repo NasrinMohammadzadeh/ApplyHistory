@@ -52,6 +52,7 @@ class AddCompanyFragment : Fragment() {
             }else if (requireArguments().getInt("insert_mode") == 1){
                 updateCompany()
             }
+            requireActivity().onBackPressed()
         }
     }
 

@@ -8,7 +8,7 @@ import androidx.room.Query
 
 @Dao
 interface CompanyDao {
-    @Query("SELECT * FROM Company")
+    @Query("SELECT * FROM Company ORDER BY id DESC")
     fun getAll(): LiveData<List<Company>>
 
     @Query("SELECT * FROM Company WHERE id = :id")
