@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.applyhistory.Company" />
+            type="com.example.applyhistory.db.Company" />
 
         <variable
             name="mode"

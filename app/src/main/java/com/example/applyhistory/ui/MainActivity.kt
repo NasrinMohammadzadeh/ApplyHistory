@@ -1,4 +1,4 @@
-package com.example.applyhistory
+package com.example.applyhistory.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,8 +1,9 @@
-package com.example.applyhistory
+package com.example.applyhistory.util
 
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import com.example.applyhistory.R
 
 object BindingUtil {
 
@@ -23,17 +24,25 @@ object BindingUtil {
         if (status != null) {
             when(status){
                 0 ->{
-                    view.background.setTint(ContextCompat.getColor(view.context, R.color.applied_color))
+                    view.background.setTint(ContextCompat.getColor(view.context,
+                        R.color.applied_color
+                    ))
                 }
 
                 1 ->{
-                    view.background.setTint(ContextCompat.getColor(view.context, R.color.rejected_color))
+                    view.background.setTint(ContextCompat.getColor(view.context,
+                        R.color.rejected_color
+                    ))
                 }
                 2 ->{
-                    view.background.setTint(ContextCompat.getColor(view.context, R.color.interview_color))
+                    view.background.setTint(ContextCompat.getColor(view.context,
+                        R.color.interview_color
+                    ))
                 }
                 3 ->{
-                    view.background.setTint(ContextCompat.getColor(view.context, R.color.accepted_color))
+                    view.background.setTint(ContextCompat.getColor(view.context,
+                        R.color.accepted_color
+                    ))
                 }
             }
         }

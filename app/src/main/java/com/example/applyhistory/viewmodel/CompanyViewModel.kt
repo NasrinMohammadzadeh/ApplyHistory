@@ -1,9 +1,11 @@
-package com.example.applyhistory
+package com.example.applyhistory.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.applyhistory.db.Company
+import com.example.applyhistory.repository.CompanyRepository
 
 class CompanyViewModel(app: Application): AndroidViewModel(app) {
 

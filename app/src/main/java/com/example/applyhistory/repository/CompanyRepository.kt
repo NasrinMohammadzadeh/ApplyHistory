@@ -1,7 +1,10 @@
-package com.example.applyhistory
+package com.example.applyhistory.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import com.example.applyhistory.db.AppDatabase
+import com.example.applyhistory.db.Company
+import com.example.applyhistory.db.CompanyDao
 
 class CompanyRepository {
     var db : AppDatabase? = null

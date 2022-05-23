@@ -1,4 +1,4 @@
-package com.example.applyhistory
+package com.example.applyhistory.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.applyhistory.db.Company
+import com.example.applyhistory.viewmodel.CompanyViewModel
+import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentCompaniesListHomeBinding
 
 class CompaniesListHomeFragment : Fragment() {
@@ -47,7 +50,7 @@ class CompaniesListHomeFragment : Fragment() {
             }
         })
 
-        adapter.setOnItemClickListener(object : CompaniesListAdapter.OnItemClickListener{
+        adapter.setOnItemClickListener(object : CompaniesListAdapter.OnItemClickListener {
             override fun onItemClick(item: Company, position: Int) {
                 val bundle = Bundle()
                 bundle.putInt("id",item.id)

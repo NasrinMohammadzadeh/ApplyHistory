@@ -1,4 +1,4 @@
-package com.example.applyhistory
+package com.example.applyhistory.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.applyhistory.db.Company
+import com.example.applyhistory.viewmodel.CompanyViewModel
+import com.example.applyhistory.util.DateAndTimeUtil
+import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentAddCompanyBinding
 
 class AddCompanyFragment : Fragment() {

@@ -1,10 +1,11 @@
-package com.example.applyhistory
+package com.example.applyhistory.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.applyhistory.db.Company
 
 @Dao
 interface CompanyDao {

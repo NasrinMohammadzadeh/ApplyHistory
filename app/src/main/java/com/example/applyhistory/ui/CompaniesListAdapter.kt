@@ -1,4 +1,4 @@
-package com.example.applyhistory
+package com.example.applyhistory.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.applyhistory.R
 import com.example.applyhistory.databinding.CompaniesListItemViewBinding
+import com.example.applyhistory.db.Company
 
 
 class CompaniesListAdapter : ListAdapter<Company, CompaniesListAdapter.ItemHolder>(DIFF_CALLBACK) {

@@ -1,4 +1,4 @@
-package com.example.applyhistory
+package com.example.applyhistory.db
 
 import android.content.Context
 import androidx.room.Database

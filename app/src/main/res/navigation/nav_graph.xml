@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/companiesListHomeFragment"
-        android:name="com.example.applyhistory.CompaniesListHomeFragment"
+        android:name="com.example.applyhistory.ui.CompaniesListHomeFragment"
         android:label="CompaniesListHomeFragment"
         tools:layout="@layout/fragment_companies_list_home">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/addCompanyFragment"
-        android:name="com.example.applyhistory.AddCompanyFragment"
+        android:name="com.example.applyhistory.ui.AddCompanyFragment"
         android:label="AddCompanyFragment"
         tools:layout="@layout/fragment_add_company">
         <argument
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/companyDetailsFragment"
-        android:name="com.example.applyhistory.CompanyDetailsFragment"
+        android:name="com.example.applyhistory.ui.CompanyDetailsFragment"
         android:label="CompanyDetailsFragment"
         tools:layout="@layout/fragment_company_detail">
         <argument
