@@ -43,6 +43,11 @@ class CompanyDetailsFragment : Fragment() {
             bundle.putInt("id",requireArguments().getInt("id"))
             findNavController().navigate(R.id.action_companyDetailsFragment_to_addCompanyFragment,bundle)
         }
+
+        binding.deleteBtn.setOnClickListener {
+            companiesViewModel.deleteCompany(requireArguments().getInt("id"))
+            requireActivity().onBackPressed()
+        }
     }
 
     override fun onStop() {

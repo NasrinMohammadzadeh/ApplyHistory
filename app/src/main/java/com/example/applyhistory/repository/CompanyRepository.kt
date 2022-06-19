@@ -50,4 +50,13 @@ class CompanyRepository @Inject constructor(private val db: AppDatabase) {
 
     }
 
+    fun deleteCompany(id: Int) {
+        CoroutineScope(IO).launch{
+            db.companyDao().deleteCompany(
+                id = id
+            )
+        }
+
+    }
+
 }

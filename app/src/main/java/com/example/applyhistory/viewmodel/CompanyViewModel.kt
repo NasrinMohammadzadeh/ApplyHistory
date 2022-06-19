@@ -32,6 +32,10 @@ class CompanyViewModel @Inject constructor(private val companyRepository : Compa
         companyRepository.updateCompany(company)
     }
 
+    fun deleteCompany(id: Int){
+        companyRepository.deleteCompany(id)
+    }
+
     fun getCompany(id: Int){
         CoroutineScope(IO).launch {
             company.postValue( companyRepository.getCompany(id))

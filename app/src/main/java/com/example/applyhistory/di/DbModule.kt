@@ -17,7 +17,7 @@ object DbModule {
 
     @Provides
     @Singleton
-    internal fun providesEventHandler(@ApplicationContext context: Context): AppDatabase {
+    internal fun providesRetrofit(@ApplicationContext context: Context): AppDatabase {
         return Room
             .databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
             .fallbackToDestructiveMigration() // get correct db version if schema changed
