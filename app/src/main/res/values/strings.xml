@@ -9,6 +9,7 @@
     <string name="update_data">update data</string>
     <string name="edit_company">edit company</string>
     <string name="delete_company">delete company</string>
+    <string name="search">search</string>
 
     <string-array name="apply_status">
         <item>Applied</item>

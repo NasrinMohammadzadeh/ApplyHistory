@@ -14,7 +14,6 @@ class CompanyRepository @Inject constructor(private val db: AppDatabase) {
     var companiesCount : LiveData<Int> = MutableLiveData()
 
 
-    @JvmName("getCompanies1")
     fun getCompanies(){
         companies = db.companyDao().getAll()
     }

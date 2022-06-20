@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentCompanyDetailBinding
+import com.example.applyhistory.util.Constants.ID
+import com.example.applyhistory.util.Constants.INSERT_MODE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,7 +32,7 @@ class CompanyDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        companiesViewModel.getCompany(requireArguments().getInt("id"))
+        companiesViewModel.getCompany(requireArguments().getInt(ID))
         companiesViewModel.company.observe(viewLifecycleOwner){
             it?.let {
                 binding.item = it
@@ -39,13 +41,13 @@ class CompanyDetailsFragment : Fragment() {
 
         binding.updateBtn.setOnClickListener {
             val bundle = Bundle()
-            bundle.putInt("insert_mode",1)
-            bundle.putInt("id",requireArguments().getInt("id"))
+            bundle.putInt(INSERT_MODE,1)
+            bundle.putInt(ID,requireArguments().getInt(ID))
             findNavController().navigate(R.id.action_companyDetailsFragment_to_addCompanyFragment,bundle)
         }
 
         binding.deleteBtn.setOnClickListener {
-            companiesViewModel.deleteCompany(requireArguments().getInt("id"))
+            companiesViewModel.deleteCompany(requireArguments().getInt(ID))
             requireActivity().onBackPressed()
         }
     }

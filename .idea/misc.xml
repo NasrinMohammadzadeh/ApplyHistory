@@ -9,7 +9,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/companies_list_item_view.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_add_company.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_companies_list_home.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_companies_list_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_company_detail.xml" value="0.35625" />
       </map>
     </option>

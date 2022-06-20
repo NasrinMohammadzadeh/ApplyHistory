@@ -1,6 +1,8 @@
 package com.example.applyhistory.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,8 @@ import com.example.applyhistory.db.Company
 import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentCompaniesListHomeBinding
+import com.example.applyhistory.util.Constants.ID
+import com.example.applyhistory.util.Constants.INSERT_MODE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +36,7 @@ class CompaniesListHomeFragment : Fragment() {
 
         binding.addCompany.setOnClickListener {
             val bundle = Bundle()
-            bundle.putInt("insert_mode",0)
+            bundle.putInt(INSERT_MODE,0)
             findNavController().navigate(R.id.action_companiesListHomeFragment_to_addCompanyFragment,bundle)
         }
 
@@ -41,7 +45,7 @@ class CompaniesListHomeFragment : Fragment() {
         binding.recycler.adapter = adapter
         companiesViewModel.companiesList?.observe(viewLifecycleOwner){
             if (it != null){
-                adapter.submitList(it)
+                adapter.setList(it)
             }
         }
 
@@ -55,7 +59,7 @@ class CompaniesListHomeFragment : Fragment() {
         adapter.setOnItemClickListener(object : CompaniesListAdapter.OnItemClickListener {
             override fun onItemClick(item: Company, position: Int) {
                 val bundle = Bundle()
-                bundle.putInt("id",item.id)
+                bundle.putInt(ID,item.id)
                 findNavController().navigate(R.id.action_companiesListHomeFragment_to_companyDetailsFragment,bundle)
             }
         })
@@ -65,6 +69,18 @@ class CompaniesListHomeFragment : Fragment() {
                 binding.count = it
             }
         }
+
+        binding.companyName.addTextChangedListener (object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(query: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                adapter.filter.filter(query)
+            }
+
+            override fun afterTextChanged(query: Editable?) {
+            }
+        })
     }
 }
 

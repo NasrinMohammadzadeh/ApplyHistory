@@ -12,6 +12,8 @@ import com.example.applyhistory.viewmodel.CompanyViewModel
 import com.example.applyhistory.util.DateAndTimeUtil
 import com.example.applyhistory.R
 import com.example.applyhistory.databinding.FragmentAddCompanyBinding
+import com.example.applyhistory.util.Constants.ID
+import com.example.applyhistory.util.Constants.INSERT_MODE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +35,7 @@ class AddCompanyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.mode = requireArguments().getInt("insert_mode",0)
+        binding.mode = requireArguments().getInt(INSERT_MODE,0)
 
         val adapter = ArrayAdapter.createFromResource(
             requireActivity(),
@@ -43,8 +45,8 @@ class AddCompanyFragment : Fragment() {
         binding.applyStatus.adapter = adapter
 
 
-        if (requireArguments().containsKey("id")){
-            companiesViewModel.getCompany(requireArguments().getInt("id"))
+        if (requireArguments().containsKey(ID)){
+            companiesViewModel.getCompany(requireArguments().getInt(ID))
             companiesViewModel.company.observe(viewLifecycleOwner){
                 it?.let {
                     binding.item = it
@@ -53,9 +55,9 @@ class AddCompanyFragment : Fragment() {
         }
 
         binding.addBtn.setOnClickListener {
-            if (requireArguments().getInt("insert_mode") == 0){
+            if (requireArguments().getInt(INSERT_MODE) == 0){
                 addCompany()
-            }else if (requireArguments().getInt("insert_mode") == 1){
+            }else if (requireArguments().getInt(INSERT_MODE) == 1){
                 updateCompany()
             }
             requireActivity().onBackPressed()
@@ -78,7 +80,7 @@ class AddCompanyFragment : Fragment() {
     private fun updateCompany(){
         companiesViewModel.updateCompany(
             Company(
-                id = requireArguments().getInt("id"),
+                id = requireArguments().getInt(ID),
                 companyName = binding.companyName.text.toString(),
                 companyWebSite = binding.companyWeb.text.toString(),
                 description = binding.description.text.toString(),
